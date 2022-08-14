@@ -7,7 +7,7 @@ Install dependencies
 
 Compile Typescript
 
-```$ tsc``` or ```$ npm build```
+```$ tsc``` or ```$ npm run build```
 
 Run app.js
 
