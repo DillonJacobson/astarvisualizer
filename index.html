@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Visualizer</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="formContainer">
+            <form action="?" id="updateGridForm">
+                <input type="number" name="colCountInput" id="colCountInput">
+                <label for="colCountInput">Column Count</label>
+                <input type="number" name="rowCountInput" id="rowCountInput">
+                <label for="rowCountInput">Row Count</label>
+                <button type="submit" id="updateGridButton">Update Grid</button>
+            </form>
+        </div>
+        <canvas id="canvas" width="800" height="600"></canvas>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body> 
+</html>
