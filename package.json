@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/DillonJacobson/astarvisualizer#readme",
   "dependencies": {
-    "express": "^4.18.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.19"
   }
 }
