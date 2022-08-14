@@ -5,6 +5,10 @@ Install npm packages
 
 ```npm i```
 
+Compile Typescript
+
+```tsc```
+
 Run app.js
 
 ```node app.js```
