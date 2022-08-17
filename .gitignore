@@ -106,4 +106,4 @@ dist
 .tern-port
 
 # Compiled Typescript files
-/assets/js
+/build/js

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Visualizer</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="formContainer">
+            <form action="?" id="updateGridForm">
+                <div class="inputWrapper">
+                    <label for="actionSelect">Select Action:</label>
+                    <select name="actionSelect" id="actionSelect">
+                        <option value="setStart">Set Start Node</option>
+                        <!-- <option value="setCheckpoint">Set Checkpoint Nodes</option> -->
+                        <option value="setEnd">Set End Node</option>
+                        <option value="setBlocked">Block/Unblock Nodes</option>
+                    </select>
+                </div>
+                <div class="inputWrapper">
+                    <label for="rowCountInput">Node Size</label>
+                    <input type="number" name="nodeSize" class="input-sm" id="nodeSize" value="50">
+                </div>
+                <div class="inputWrapper">
+                    <label for="rowCountInput">Delay (seconds)</label>
+                    <input type="number" min="0.1" step="0.1" name="delaySeconds" class="input-sm" id="delaySeconds" value="1">
+                </div>
+                <div style="display:none">
+                    <label for="allowDiagonal">Diagonal moves: </label>
+                    <input type="checkbox" name="allowDiagonal" id="allowDiagonal" checked>
+                </div>
+                <div class="buttonControlWrapper">
+                    <button type="submit" id="updateSettingsButton" style="margin-right: 0.5rem;">Update Settings</button>
+                    <button type="button" id="pausePath">Pause</button>
+                    <button type="button" id="resetPath">Reset</button>
+                    <button type="button" id="findPath">Find Path</button>
+                </div>
+            </form>
+            <div class="settingsDisplay">
+                Current settings: Node Size <span id="nodeSizeDisplay">50</span> | Delay <span id="delayDisplay">1</span> Second
+            </div>
+        </div>
+        <canvas id="canvas" width="1000" height="800"></canvas>
+    </div>
+    <script type="module" src="/js/main.js"></script>
+</body> 
+</html>

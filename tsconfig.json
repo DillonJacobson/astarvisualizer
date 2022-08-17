@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
         "target": "ES6",
-        "outDir": "assets/js",
+        "outDir": "build/js",
     },
     "include": [
-        "assets/ts/**/*"
+        "src/ts/**/*"
     ],
     "exclude": [
         "node_modules"

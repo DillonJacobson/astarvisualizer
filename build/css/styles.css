@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#updateGridForm {
+    justify-content: center;
+    display: flex;
+    align-items: end;
+}
+
+.input-sm {
+    width:4rem
+}
+
+.settingsDisplay{
+    padding-top: 0.75rem;
+    text-align: center;
+}
+
+.inputWrapper input,label{
+    display:flex;
+    flex-direction:column;
+}
+.inputWrapper{
+    display:block;
+    margin:0 0.5rem;
+}
+.inputWrapper select{
+    padding: 1px;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+}
+
+.formContainer{
+    margin: 1.5rem 0;
+    display: block;
+}
+
+#canvas{
+    border: 1px solid black;
+}

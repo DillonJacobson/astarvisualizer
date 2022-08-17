@@ -28,10 +28,11 @@ const app = express()
 const PORT = cmdArgs.PORT ? cmdArgs.PORT : process.env.PORT || 3000
 const HOST = cmdArgs.HOST ? cmdArgs.HOST : process.env.HOST || 'localhost'
 
-app.use(express.static(path.join(__dirname,'assets')))
+app.use(express.static(path.join(__dirname,'build')))
+console.log(path.join(__dirname,'build'))
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/index.html'));
+    res.sendFile(path.join(__dirname, 'build/html/index.html'));
 })
 
 app.listen(PORT, HOST, () => {
