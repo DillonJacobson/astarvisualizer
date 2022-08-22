@@ -4,6 +4,7 @@ export default class GridNode implements Box {
     position: Position = {x:0, y:0}
     width: number
     height: number
+    center: Position = {x:0, y:0}
     collider: object
     gridX: number
     gridY: number
@@ -38,6 +39,10 @@ export default class GridNode implements Box {
         };
         this.width = size;
         this.height = size;
+        this.center = {
+            x: this.position.x + this.width / 2,
+            y: this.position.y + this.height / 2
+        }
     }
 
     get fCost(){
@@ -52,7 +57,7 @@ export default class GridNode implements Box {
      * 
      * @param {CanvasRenderingContext2D} ctx Canvas context2d
      */
-    draw(ctx:CanvasRenderingContext2D){
+    draw(ctx:CanvasRenderingContext2D, fontSize:number){
         ctx.save();
         
         if (this.isBlocked) ctx.fillStyle = "black";
@@ -69,6 +74,18 @@ export default class GridNode implements Box {
         if (this.isHovered){
             ctx.fillStyle = "rgba(0,0,0,0.3)";
             ctx.fill();
+        }
+        if (this.isOpen || this.isClosed || this.isPath){
+            ctx.fillStyle = "black"
+            ctx.font = `${fontSize}px Arial`
+            ctx.textAlign = 'center'
+            ctx.textBaseline = 'bottom'
+            let strokeOffset = ctx.lineWidth * 2
+            let textOffset = ctx.measureText(this.gCost.toString()).width / 2
+            ctx.fillText(this.gCost.toString(), this.position.x + textOffset + strokeOffset * 2, fontSize + this.position.y + strokeOffset)
+            textOffset = ctx.measureText(this.hCost.toString()).width
+            ctx.fillText(this.hCost.toString(), this.position.x + this.width - textOffset + strokeOffset, fontSize + this.position.y + strokeOffset)
+            ctx.fillText(this.fCost.toString(), this.center.x, this.center.y + (fontSize / 2) + strokeOffset)
         }
         ctx.stroke();
         ctx.restore();

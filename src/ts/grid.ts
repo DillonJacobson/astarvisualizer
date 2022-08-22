@@ -17,12 +17,14 @@ export default class Grid{
     pausePath: boolean = false
     pathComplete: boolean = true
     allowDiagonal: boolean = true
+    fontSize: number
 
     constructor(
         canvas: HTMLCanvasElement, nodeSize? : number
     ){
         this.canvas = canvas
         this.nodeSize = nodeSize || this.nodeSize
+        this.fontSize = Math.floor(nodeSize / 5)
     }
 
     build(){
@@ -31,6 +33,7 @@ export default class Grid{
         let xOffset = 0
         this.colCount = Math.floor(this.canvas.width / this.nodeSize)
         this.rowCount = Math.floor(this.canvas.height / this.nodeSize)
+        this.fontSize = Math.floor(this.nodeSize / 5)
         this.nodes = [[]]
         xOffset = (this.canvas.width - this.colCount * this.nodeSize) / 2
         yOffset = (this.canvas.height - this.rowCount * this.nodeSize) / 2
@@ -126,7 +129,7 @@ export default class Grid{
                 }
             })
             currentNode.clear(ctx)
-            currentNode.draw(ctx)
+            currentNode.draw(ctx, this.fontSize)
             // Draw grid nodes every second
             await sleep(delay);
         }
@@ -198,7 +201,7 @@ export default class Grid{
     draw(ctx:CanvasRenderingContext2D){
         this.nodes.forEach((row: Array<GridNode>) => {
             row.forEach((node)=>{
-                node.draw(ctx)
+                node.draw(ctx, this.fontSize)
             })
         })
     }
